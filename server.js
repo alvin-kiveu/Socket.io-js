@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 
 //creating a new connection
 io.on("connection", (socket) => {
-  console.log("new user connected with the id" + socket.id);
+  console.log(" Sucessfuly Connected id :" + socket.id);
 
   socket.on("disconnected", () => {
     console.log("user disconnected");
@@ -22,11 +22,11 @@ io.on("connection", (socket) => {
 
   //reciving data fromthe clent
   socket.on("massage", (msg) => {
-    console.log("Client message is: " + msg);
+    console.log(msg);
   });
 
   //sending data from the server to client
-  socket.emit("serverMsg", "Hellow client");
+  socket.emit("serverMsg", "Hey Client");
 });
 
 http.listen(port, () => {
